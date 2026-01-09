@@ -9,7 +9,6 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from './entities/user.entity';
 import { JwtService } from '@nestjs/jwt';
-import { SendFCMTokenDto } from './dto/send-fcm_token.dto';
 
 @Injectable()
 export class UserService {
