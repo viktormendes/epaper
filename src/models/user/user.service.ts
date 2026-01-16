@@ -18,7 +18,7 @@ export class UserService {
   ) {}
 
   async updateHashedRefreshToken(
-    userId: number,
+    userId: string,
     hashedRefreshToken: string | null,
   ) {
     return await this.UserRepo.update({ id: userId }, { hashedRefreshToken });
@@ -50,7 +50,7 @@ export class UserService {
     });
   }
 
-  async findOne(id: number) {
+  async findOne(id: string) {
     return this.UserRepo.findOne({
       where: { id },
       select: [
@@ -64,12 +64,12 @@ export class UserService {
     });
   }
 
-  async update(id: number, updateUserDto: UpdateUserDto) {
+  async update(id: string, updateUserDto: UpdateUserDto) {
     await this.UserRepo.update(id, updateUserDto);
     return this.findOne(id);
   }
 
-  async remove(id: number) {
+  async remove(id: string) {
     const user = await this.UserRepo.findOne({ where: { id } });
     if (!user) {
       throw new Error(`User with id ${id} not found`);

@@ -6,6 +6,18 @@ import { swaggerConfig } from './configuration';
 export class SwaggerModuleConfig {
   static setup(app: INestApplication<any>): void {
     const document = SwaggerModule.createDocument(app, swaggerConfig);
-    SwaggerModule.setup('api', app, document);
+    SwaggerModule.setup('swagger', app, document, {
+      swaggerOptions: {
+        requestInterceptor: (request) => {
+          if (request.headers && request.headers.Authorization) {
+            const token = request.headers.Authorization;
+            if (!token.startsWith('Bearer ')) {
+              request.headers.Authorization = `Bearer ${token}`;
+            }
+          }
+          return request;
+        },
+      },
+    });
   }
 }
