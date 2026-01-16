@@ -2,6 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
 import { AppModule } from './app.module';
 import { SwaggerModuleConfig } from './config/swagger/config.module';
+import { AllExceptionsFilter } from '@/exceptions.filter';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -12,8 +13,13 @@ async function bootstrap() {
       forbidNonWhitelisted: true,
       transform: true,
       disableErrorMessages: false,
+      transformOptions: { enableImplicitConversion: true },
     }),
   );
+
+  app.setGlobalPrefix('api');
+
+  app.useGlobalFilters(new AllExceptionsFilter());
 
   app.enableCors({
     origin: process.env.URL_FRONTEND,
