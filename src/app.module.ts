@@ -5,6 +5,8 @@ import { AppService } from './app.service';
 import { UserModule } from './models/user/user.module';
 import { PostgresConfigModule } from './config/database/postgres/config.module';
 import { AuthModule } from './authentication/auth.module';
+import { DocumentModule } from './models/document/document.module';
+import { IssuerModule } from './models/issuer/issuer.module';
 
 @Module({
   imports: [
@@ -14,6 +16,8 @@ import { AuthModule } from './authentication/auth.module';
     UserModule,
     PostgresConfigModule,
     AuthModule,
+    DocumentModule,
+    IssuerModule,
   ],
   controllers: [AppController],
   providers: [AppService],
