@@ -30,7 +30,7 @@ export class AuthService {
     return { id: user.id };
   }
 
-  async login(userId: number) {
+  async login(userId: string) {
     // const payload: AuthJwtPayload = { sub: userId };
     // const token = this.jwtService.sign(payload);
     // const refreshToken = this.jwtService.sign(payload, this.refreshTokenConfig);
@@ -43,7 +43,7 @@ export class AuthService {
       refreshToken,
     };
   }
-  async generateTokens(userId: number) {
+  async generateTokens(userId: string) {
     const payload: AuthJwtPayload = { sub: userId };
     const [accessToken, refreshToken] = await Promise.all([
       this.jwtService.signAsync(payload),
@@ -55,8 +55,10 @@ export class AuthService {
     };
   }
 
-  async refreshToken(userId: number) {
+  async refreshToken(userId: string) {
     const { accessToken, refreshToken } = await this.generateTokens(userId);
+    console.log('accessToken', accessToken);
+    console.log('refreshToken', refreshToken);
     const hashedRefreshToken = await argon2.hash(refreshToken);
     await this.userService.updateHashedRefreshToken(userId, hashedRefreshToken);
     return {
@@ -66,7 +68,7 @@ export class AuthService {
     };
   }
 
-  async validateRefreshToken(userId: number, refreshToken: string) {
+  async validateRefreshToken(userId: string, refreshToken: string) {
     const user = await this.userService.findOne(userId);
     if (!user || !user.hashedRefreshToken)
       throw new UnauthorizedException('Invalid Refresh Token');
@@ -81,11 +83,11 @@ export class AuthService {
     return { id: userId };
   }
 
-  async signOut(userId: number) {
+  async signOut(userId: string) {
     await this.userService.updateHashedRefreshToken(userId, null);
   }
 
-  async validateJwtUser(userId: number) {
+  async validateJwtUser(userId: string) {
     const user = await this.userService.findOne(userId);
     if (!user) throw new UnauthorizedException('User not found!');
     const currentUser: CurrentUser = { id: user.id, role: user.role };
