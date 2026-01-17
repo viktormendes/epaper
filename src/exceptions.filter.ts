@@ -33,7 +33,6 @@ export class AllExceptionsFilter implements ExceptionFilter {
       } else if (typeof res === 'object' && res !== null) {
         const resObj = res as any;
 
-        // Mensagem do ValidationPipe
         if (Array.isArray(resObj.message)) {
           message = resObj.message.map((m: ValidationError | string) => {
             if (typeof m === 'string') return m;
