@@ -28,8 +28,6 @@ export class RefreshJwtStrategy extends PassportStrategy(
     });
   }
 
-  // authorization: Bearer sldfk;lsdkf'lskald'sdkf;sdl
-
   validate(req: Request, payload: AuthJwtPayload) {
     const refreshToken = req.get('authorization').replace('Bearer', '').trim();
     const userId = payload.sub;
