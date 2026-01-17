@@ -13,6 +13,7 @@ export class CreateTableDocument1741020000003 implements MigrationInterface {
         "documentType" "document_type_enum" NOT NULL,
         "totalTaxAmount" DECIMAL(15, 2) DEFAULT 0 NOT NULL,
         "netAmount" DECIMAL(15, 2) DEFAULT 0 NOT NULL,
+        "fileKey" VARCHAR(1000),
         "fileUrl" VARCHAR(1000),
         "fileName" VARCHAR(255),
         "fileType" "file_type_enum",
