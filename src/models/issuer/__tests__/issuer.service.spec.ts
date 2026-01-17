@@ -42,7 +42,7 @@ describe('IssuerService', () => {
 
   describe('create', () => {
     it('deve criar um issuer com sucesso', async () => {
-      const dto = { name: 'Issuer', cnpj: '123', companyName: 'Company' };
+      const dto = { name: 'Issuer', code: '123', companyName: 'Company' };
       const user = { id: 'user-id' } as User;
       const issuer = { id: 'issuer-id' } as Issuer;
 

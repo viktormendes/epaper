@@ -7,10 +7,10 @@ export class CreateIssuerDto {
   @IsString()
   name: string;
 
-  @ApiProperty({ description: 'CNPJ do emissor' })
+  @ApiProperty({ description: 'Código do emissor' })
   @IsNotEmpty()
   @IsString()
-  cnpj: string;
+  code: string;
 
   @ApiProperty({ description: 'Razão social da empresa' })
   @IsNotEmpty()

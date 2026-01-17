@@ -37,7 +37,6 @@ export class PaginationQueryDto {
   limit?: number = 10;
 
   @ApiPropertyOptional({
-    example: 'epaper',
     description: 'Texto para busca',
   })
   @IsString()
@@ -45,7 +44,6 @@ export class PaginationQueryDto {
   search?: string;
 
   @ApiPropertyOptional({
-    example: 'name',
     description: 'Campo para ordenação',
   })
   @IsString()

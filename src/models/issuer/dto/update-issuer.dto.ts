@@ -6,8 +6,8 @@ export class UpdateIssuerDto extends PartialType(CreateIssuerDto) {
   @ApiPropertyOptional({ description: 'Nome do emissor' })
   name?: string;
 
-  @ApiPropertyOptional({ description: 'CNPJ do emissor' })
-  cnpj?: string;
+  @ApiPropertyOptional({ description: 'Código do emissor' })
+  code?: string;
 
   @ApiPropertyOptional({ description: 'Razão social da empresa' })
   companyName?: string;

@@ -8,7 +8,7 @@ export class CreateTableIssuer1741020000002 implements MigrationInterface {
       CREATE TABLE "issuer" (
         id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
         name VARCHAR NOT NULL,
-        cnpj VARCHAR NOT NULL,
+        code VARCHAR NOT NULL,
         "companyName" VARCHAR NOT NULL,
         "createdByUserId" UUID NOT NULL,
         "createdAt" TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
