@@ -20,7 +20,7 @@ export class Issuer {
   name: string;
 
   @Column()
-  cnpj: string;
+  code: string;
 
   @Column()
   companyName: string;
