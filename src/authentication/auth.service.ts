@@ -57,6 +57,8 @@ export class AuthService {
 
   async refreshToken(userId: string) {
     const { accessToken, refreshToken } = await this.generateTokens(userId);
+    console.log('accessToken', accessToken);
+    console.log('refreshToken', refreshToken);
     const hashedRefreshToken = await argon2.hash(refreshToken);
     await this.userService.updateHashedRefreshToken(userId, hashedRefreshToken);
     return {
