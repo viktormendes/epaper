@@ -78,7 +78,7 @@ export class IssuerService {
   }
 
   async remove(id: string) {
-    const issuer = await this.findOne(id); // já lança erro se não existir
+    const issuer = await this.findOne(id);
     return this.issuerRepository.remove(issuer);
   }
 }
