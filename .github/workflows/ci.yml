@@ -50,7 +50,7 @@ jobs:
         run: |
           echo "Waiting for Postgres..."
           for i in {1..15}; do
-            pg_isready -h postgres -p 5432 -U postgres && break
+            pg_isready -h localhost -p 5432 -U postgres && break
             sleep 2
           done
 
@@ -64,11 +64,11 @@ jobs:
 
       - name: Run e2e tests
         env:
-          DATABASE_HOST: postgres
+          DATABASE_HOST: localhost
           DATABASE_PORT: 5432
           DATABASE_USER: postgres
           DATABASE_PASSWORD: postgres
-          DATABASE_DB: epaper_test_db
+          DATABASE_DB: epaper_test_ci_db
           NODE_ENV: test
           JWT_EXPIRE_IN: 3600
           JWT_SECRET: testsecret
