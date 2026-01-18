@@ -7,6 +7,11 @@ O projeto conta com Docker para ambiente local e CI/CD configurado via **GitHub 
 
 ## Acesso
 - Acesse a API em: http://161.35.237.174:5000/swagger
+- Usuário Mock:
+```
+email: admin@epaper.com
+password: 123456
+```
 ---
 ## Tecnologias utilizadas
 
@@ -28,6 +33,7 @@ O projeto conta com Docker para ambiente local e CI/CD configurado via **GitHub 
 - Upload e download de arquivos para Minio
 - API modularizada com NestJS e testes unitários
 - Testes E2E utilizando banco de testes isolado
+- Verifique a [Análise Técnica](./Análise_Técnica.md)
 
 ---
 
