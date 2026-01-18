@@ -58,7 +58,7 @@ jobs:
         run: |
           echo "Waiting for MinIO..."
           for i in {1..15}; do
-            curl -f http://minio:9000/minio/health/live && break
+            curl -f http://161.35.237.174:9000/minio/health/live && break
             sleep 2
           done
 
@@ -74,8 +74,10 @@ jobs:
           JWT_SECRET: testsecret
           REFRESH_JWT_SECRET: testrefreshsecret
           REFRESH_JWT_EXPIRE_IN: 86400
+          GOOGLE_CLIENT_ID: asgjlslgjkaskljgsklagjalsjkgasgjklasgkjl
+          GOOGLE_CLIENT_SECRET: asgjksgajklgjksalsalkgjosgaasjog
           URL_FRONTEND: http://localhost:3000
-          S3_ENDPOINT: http://minio:9000
+          S3_ENDPOINT: http://161.35.237.174:9000
           S3_REGION: us-east-1
           S3_ACCESS_KEY: minioadmin
           S3_SECRET_KEY: minioadmin123
