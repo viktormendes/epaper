@@ -5,6 +5,9 @@ O projeto conta com Docker para ambiente local e CI/CD configurado via **GitHub 
 
 ---
 
+## Acesso
+- Acesse a API em: http://161.35.237.174:5000/swagger
+---
 ## Tecnologias utilizadas
 
 - [NestJS](https://nestjs.com/)
@@ -23,7 +26,7 @@ O projeto conta com Docker para ambiente local e CI/CD configurado via **GitHub 
 - Autenticação JWT com Roles (login, refresh e logout)
 - Integração com Google OAuth
 - Upload e download de arquivos para Minio
-- API modularizada com NestJS
+- API modularizada com NestJS e testes unitários
 - Testes E2E utilizando banco de testes isolado
 
 ---
@@ -80,6 +83,7 @@ Isso irá iniciar:
 - PostgreSQL na porta 5432
 
 - Minio na porta 9000
+- Acesse o SWAGGER em: http://localhost:5000/swagger
 
 ### 3. Rodar Manualmente
 #### 1. Instalar dependências
@@ -91,4 +95,4 @@ npm i
 ```
 npm run start:dev
 ```
-O servidor ficará disponível em http://localhost:3000.
+Acesse o SWAGGER em: http://localhost:5000/swagger
