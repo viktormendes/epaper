@@ -1,4 +1,4 @@
-name: Deploy to chatresponde via SSH
+name: Deploy to epaper via SSH
 
 on:
   push:
