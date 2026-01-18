@@ -28,3 +28,4 @@ O projeto conta com Docker para ambiente local e CI/CD configurado via **GitHub 
 
 ---
 
+## Como instalar
