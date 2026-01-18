@@ -26,17 +26,18 @@ jobs:
 
       minio:
         image: minio/minio:latest
+        ports:
+          - 9000:9000
         env:
           MINIO_ROOT_USER: minioadmin
           MINIO_ROOT_PASSWORD: minioadmin123
         options: >-
-          --health-cmd "mc alias set local http://localhost:9000 minioadmin minioadmin123 && mc admin info local || exit 1"
+          --health-cmd "curl -f http://localhost:9000/minio/health/live || exit 1"
           --health-interval 5s
           --health-timeout 5s
           --health-retries 5
-        ports:
-          - 9000:9000
-        # command não é permitido aqui
+          server /data
+
 
     steps:
       - uses: actions/checkout@v3
